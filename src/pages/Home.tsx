@@ -6,7 +6,7 @@ import ProductCard from '../components/ProductCard';
 import { useData } from '../context/DataContext';
 
 const Home = () => {
-  const { products, services, branches, achievements, projects } = useData();
+  const { products, services, branches, achievements, projects, heroData } = useData();
   const featuredProducts = products.filter(p => p.isFeatured);
 
   // Animation Variants
@@ -32,8 +32,8 @@ const Home = () => {
         {/* Background Image with Parallax Effect */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80&w=1600" 
-            alt="Solar Panels" 
+            src={heroData.backgroundImage} 
+            alt="Hero Background" 
             className="w-full h-full object-cover opacity-40 scale-105 animate-float" // Simple CSS animation
           />
           <div className="absolute inset-0 bg-gradient-to-r from-secondary-900 via-secondary-900/80 to-transparent"></div>
@@ -49,19 +49,19 @@ const Home = () => {
               <motion.div variants={fadeInUp}>
                 <span className="inline-flex items-center gap-2 bg-brand-500/20 text-brand-300 border border-brand-500/30 text-sm font-bold px-4 py-1.5 rounded-full mb-6 backdrop-blur-sm">
                   <Sun size={16} className="text-primary-500" />
-                  قسم تركيب منظومات الطاقة الشمسية
+                  {heroData.tagline}
                 </span>
               </motion.div>
               
               <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                طاقة نظيفة ومستدامة <br/>
+                {heroData.headline} <br/>
                 <span className="text-transparent bg-clip-text bg-gradient-to-l from-primary-400 to-brand-400">
-                  لمستقبل أفضل
+                  {heroData.subHeadline}
                 </span>
               </motion.h1>
               
               <motion.p variants={fadeInUp} className="text-lg md:text-xl text-gray-200 mb-10 leading-relaxed max-w-2xl">
-                نقدم حلولاً متكاملة في مجال الطاقة الشمسية للمزارع والمنازل، بالإضافة إلى توفير أجود أنواع البطاريات والزيوت لضمان استمرارية أعمالكم.
+                {heroData.description}
               </motion.p>
               
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">

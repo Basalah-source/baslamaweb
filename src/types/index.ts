@@ -58,3 +58,11 @@ export interface CompanyInfo {
   instagram?: string;
   whatsapp?: string;
 }
+
+export interface HeroData {
+  tagline: string;      // النص الصغير في الأعلى (مثال: قسم تركيب منظومات...)
+  headline: string;     // العنوان الرئيسي (مثال: طاقة نظيفة ومستدامة)
+  subHeadline: string;  // العنوان الملون (مثال: لمستقبل أفضل)
+  description: string;  // الوصف الطويل
+  backgroundImage: string;
+}

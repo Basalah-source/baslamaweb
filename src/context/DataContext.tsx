@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
-import { Product, Service, Branch, Achievement, CompanyInfo, Project } from '../types';
-import { initialProducts, initialServices, initialBranches, initialAchievements, initialCompanyInfo, initialProjects } from '../data/mockData';
+import { Product, Service, Branch, Achievement, CompanyInfo, Project, HeroData } from '../types';
+import { initialProducts, initialServices, initialBranches, initialAchievements, initialCompanyInfo, initialProjects, initialHeroData } from '../data/mockData';
 
 interface DataContextType {
   products: Product[];
@@ -9,6 +9,7 @@ interface DataContextType {
   achievements: Achievement[];
   companyInfo: CompanyInfo;
   projects: Project[];
+  heroData: HeroData;
   
   // Product Actions
   addProduct: (product: Product) => void;
@@ -27,6 +28,9 @@ interface DataContextType {
 
   // Company Info
   updateCompanyInfo: (info: Partial<CompanyInfo>) => void;
+
+  // Hero Data
+  updateHeroData: (data: Partial<HeroData>) => void;
 }
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
@@ -47,6 +51,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
   const [achievements, setAchievements] = useState<Achievement[]>(() => loadState('achievements', initialAchievements));
   const [companyInfo, setCompanyInfo] = useState<CompanyInfo>(() => loadState('companyInfo', initialCompanyInfo));
   const [projects, setProjects] = useState<Project[]>(() => loadState('projects', initialProjects));
+  const [heroData, setHeroData] = useState<HeroData>(() => loadState('heroData', initialHeroData));
 
   // Persistence Effects
   useEffect(() => localStorage.setItem('products', JSON.stringify(products)), [products]);
@@ -55,6 +60,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => localStorage.setItem('achievements', JSON.stringify(achievements)), [achievements]);
   useEffect(() => localStorage.setItem('companyInfo', JSON.stringify(companyInfo)), [companyInfo]);
   useEffect(() => localStorage.setItem('projects', JSON.stringify(projects)), [projects]);
+  useEffect(() => localStorage.setItem('heroData', JSON.stringify(heroData)), [heroData]);
 
   // --- Actions ---
 
@@ -84,13 +90,18 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     setCompanyInfo(prev => ({ ...prev, ...info }));
   };
 
+  // Hero Data
+  const updateHeroData = (data: Partial<HeroData>) => {
+    setHeroData(prev => ({ ...prev, ...data }));
+  };
+
   return (
     <DataContext.Provider value={{ 
-      products, services, branches, achievements, companyInfo, projects,
+      products, services, branches, achievements, companyInfo, projects, heroData,
       addProduct, updateProduct, deleteProduct,
       addProject, updateProject, deleteProject,
       addService, updateService, deleteService,
-      updateCompanyInfo
+      updateCompanyInfo, updateHeroData
     }}>
       {children}
     </DataContext.Provider>

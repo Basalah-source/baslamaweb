@@ -1,4 +1,4 @@
-import { Product, Service, Branch, Achievement, CompanyInfo, Project } from '../types';
+import { Product, Service, Branch, Achievement, CompanyInfo, Project, HeroData } from '../types';
 
 export const initialCompanyInfo: CompanyInfo = {
   name: 'مجموعة باسلامه',
@@ -12,6 +12,14 @@ export const initialCompanyInfo: CompanyInfo = {
   twitter: '#',
   instagram: '#',
   whatsapp: 'https://wa.me/967777771714'
+};
+
+export const initialHeroData: HeroData = {
+  tagline: 'قسم تركيب منظومات الطاقة الشمسية',
+  headline: 'طاقة نظيفة ومستدامة',
+  subHeadline: 'لمستقبل أفضل',
+  description: 'نقدم حلولاً متكاملة في مجال الطاقة الشمسية للمزارع والمنازل، بالإضافة إلى توفير أجود أنواع البطاريات والزيوت لضمان استمرارية أعمالكم.',
+  backgroundImage: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80&w=1600'
 };
 
 export const initialProducts: Product[] = [
