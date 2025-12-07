@@ -14,6 +14,7 @@ const ProjectManager = () => {
     title: '',
     category: 'طاقة شمسية',
     description: '',
+    content: '',
     image: '',
     date: new Date().toISOString().split('T')[0],
     location: ''
@@ -29,6 +30,7 @@ const ProjectManager = () => {
         title: '',
         category: 'طاقة شمسية',
         description: '',
+        content: '',
         image: '',
         date: new Date().toISOString().split('T')[0],
         location: ''
@@ -68,12 +70,24 @@ const ProjectManager = () => {
         </button>
       </div>
 
+      {/* Search */}
+      <div className="mb-6 relative max-w-md">
+        <input 
+          type="text" 
+          placeholder="بحث في المشاريع..." 
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full pl-4 pr-10 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+        />
+        <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProjects.map((project) => (
           <div key={project.id} className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden group">
             <div className="h-48 relative overflow-hidden">
               <img 
-                src={project.image || 'https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400'} 
+                src={project.image || 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400'} 
                 alt={project.title} 
                 className="w-full h-full object-cover"
               />
@@ -112,7 +126,7 @@ const ProjectManager = () => {
 
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
-          <div className="bg-white rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl">
+          <div className="bg-white rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-2xl">
             <div className="p-6 border-b border-gray-100 flex justify-between items-center sticky top-0 bg-white z-10">
               <h2 className="text-xl font-bold">{editingProject ? 'تعديل مشروع' : 'إضافة مشروع جديد'}</h2>
               <button onClick={() => setIsModalOpen(false)} className="text-gray-500 hover:text-gray-700">
@@ -124,7 +138,7 @@ const ProjectManager = () => {
               <ImageUpload 
                 value={formData.image || ''} 
                 onChange={(val) => setFormData({...formData, image: val})}
-                label="صورة المشروع"
+                label="صورة المشروع الرئيسية"
               />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -170,12 +184,23 @@ const ProjectManager = () => {
                   />
                 </div>
                 <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">تفاصيل المشروع</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">نبذة مختصرة (تظهر في البطاقة)</label>
                   <textarea 
-                    rows={4}
+                    rows={2}
                     value={formData.description} 
                     onChange={e => setFormData({...formData, description: e.target.value})}
                     className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary-500 outline-none"
+                    required
+                  ></textarea>
+                </div>
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">تفاصيل المشروع الكاملة (تظهر في صفحة التفاصيل)</label>
+                  <textarea 
+                    rows={6}
+                    value={formData.content || ''} 
+                    onChange={e => setFormData({...formData, content: e.target.value})}
+                    className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary-500 outline-none"
+                    placeholder="اكتب هنا قصة المشروع، التحديات، الحلول المقدمة..."
                   ></textarea>
                 </div>
               </div>

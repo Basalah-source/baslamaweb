@@ -7,7 +7,7 @@ export const initialCompanyInfo: CompanyInfo = {
   email: 'baslamah2011@hotmail.com',
   phones: ['05458956', '05409148', '05404966', '777771714'],
   address: 'اليمن، حضرموت، القطن، الشارع العام',
-  logo: 'https://i.ibb.co/wNq1X0K/baslamah-logo-placeholder.png', // Placeholder, user can update via CMS
+  logo: 'https://i.ibb.co/wNq1X0K/baslamah-logo-placeholder.png',
   facebook: '#',
   twitter: '#',
   instagram: '#',
@@ -143,8 +143,9 @@ export const initialProjects: Project[] = [
     id: '1',
     title: 'مشروع الطاقة الشمسية الزراعي',
     category: 'طاقة شمسية',
-    description: 'تركيب ألواح طاقة شمسية لتشغيل المضخات الزراعية في بيئة صحراوية، مما يساهم في تقليل تكاليف الديزل وزيادة الإنتاجية.',
-    image: 'https://images.unsplash.com/photo-1566093097221-ac2335b09e70?auto=format&fit=crop&q=80&w=1000', // Palm trees and solar vibe
+    description: 'تركيب ألواح طاقة شمسية لتشغيل المضخات الزراعية في بيئة صحراوية.',
+    content: 'قمنا في هذا المشروع بتصميم وتركيب منظومة طاقة شمسية متكاملة بقدرة 150 كيلو واط لتشغيل مضخات المياه الجوفية في منطقة وادي حضرموت. المشروع ساهم في تقليل تكلفة الديزل بنسبة 100% للمزارع، مما زاد من الجدوى الاقتصادية للمحصول. تم استخدام ألواح من نوع Monocrystalline وقواعد متحركة لتتبع الشمس يدوياً.',
+    image: 'https://images.unsplash.com/photo-1566093097221-ac2335b09e70?auto=format&fit=crop&q=80&w=1000',
     date: '2024-01-15',
     location: 'وادي حضرموت'
   },
@@ -152,8 +153,9 @@ export const initialProjects: Project[] = [
     id: '2',
     title: 'تركيب منظومة هايبرد متكاملة',
     category: 'تركيبات فنية',
-    description: 'تجهيز غرفة تحكم كاملة تحتوي على إنفرترات حديثة وبطاريات ليثيوم لتوفير طاقة مستقرة على مدار 24 ساعة.',
-    image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=1000', // Technician working
+    description: 'تجهيز غرفة تحكم كاملة تحتوي على إنفرترات حديثة وبطاريات ليثيوم.',
+    content: 'تم تنفيذ هذا المشروع لصالح مجمع تجاري في سيئون، حيث تطلب العمل توفير طاقة مستقرة على مدار 24 ساعة لتشغيل الثلاجات وأجهزة التكييف. قمنا بتركيب نظام هجين (Hybrid) يدمج بين الطاقة الشمسية والكهرباء العمومية والمولد الاحتياطي، مع بنك بطاريات ليثيوم بسعة تخزينية عالية.',
+    image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=1000',
     date: '2023-12-20',
     location: 'سيئون'
   },
@@ -162,6 +164,7 @@ export const initialProjects: Project[] = [
     title: 'محطة وقود بن عيفان',
     category: 'مشاريع تجارية',
     description: 'تزويد محطة الوقود بالطاقة النظيفة لتشغيل المضخات والإنارة.',
+    content: 'مشروع حيوي لتزويد محطة وقود بن عيفان بالطاقة الشمسية. التحدي كان في توفير مساحة كافية للألواح، وتم حل ذلك بعمل مظلات شمسية (Carport) تستخدم كمواقف للسيارات وفي نفس الوقت تحمل الألواح الشمسية، مما وفر ظلاً للعملاء وطاقة للمحطة.',
     image: 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&q=80&w=1000',
     date: '2023-11-05',
     location: 'بن عيفان'

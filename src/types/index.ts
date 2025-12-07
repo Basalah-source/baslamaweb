@@ -37,8 +37,10 @@ export interface Project {
   id: string;
   title: string;
   category: string;
-  description: string;
+  description: string; // Brief summary for cards
+  content?: string;    // Full details for the dedicated page
   image: string;
+  gallery?: string[];  // Additional images
   date: string;
   location: string;
 }
@@ -50,7 +52,7 @@ export interface CompanyInfo {
   email: string;
   phones: string[];
   address: string;
-  logo: string; // Added logo field
+  logo: string;
   facebook?: string;
   twitter?: string;
   instagram?: string;

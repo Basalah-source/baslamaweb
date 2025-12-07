@@ -9,6 +9,7 @@ import Branches from './pages/Branches';
 import Contact from './pages/Contact';
 import About from './pages/About';
 import Projects from './pages/Projects';
+import ProjectDetailsPage from './pages/ProjectDetailsPage'; // New Import
 
 // Service Detail Pages
 import SolarService from './pages/services/SolarService';
@@ -50,6 +51,8 @@ function App() {
           <Route path="services/tires" element={<TireService />} />
 
           <Route path="projects" element={<Projects />} />
+          <Route path="projects/:id" element={<ProjectDetailsPage />} /> {/* New Route */}
+          
           <Route path="branches" element={<Branches />} />
           <Route path="contact" element={<Contact />} />
           <Route path="about" element={<About />} />
